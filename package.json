@@ -1,0 +1,16 @@
+{
+  "name": "instagram-scraper-profile",
+  "version": "0.0.1",
+  "description": "Nodejs instagram scraper profile",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@jivagomr",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.2.0",
+    "nightmare": "^3.0.2"
+  }
+}
