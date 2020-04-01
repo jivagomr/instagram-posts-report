@@ -3,6 +3,8 @@ const fs = require('fs');
 
 var nightmare = Nightmare({show: false});
 
+var delay_visit = 1500;
+
 var main_crawler = async function * () {
   
   yield nightmare.goto('https://www.instagram.com/accounts/login/?source=auth_switcher')
@@ -51,7 +53,7 @@ var main_crawler = async function * () {
 
   while (n < uniq_links.length) {
     var link_post = uniq_links[n];
-    var cu = await nightmare.goto(link_post).wait(1500).evaluate((link) => {
+    var visiting = await nightmare.goto(link_post).wait(delay_visit).evaluate((link) => {
       var date_time = document.querySelector("time._1o9PC").getAttribute("datetime"); //caso a estrutura do HTML e nomes de classes mudem, o script precisa ser atualizado
       var likes = document.querySelector("button.sqdOP > span").textContent; //caso a estrutura do HTML e nomes de classes mudem, o script precisa ser atualizado
       line = link+"\t"+date_time+"\t"+likes+"\r\n";
